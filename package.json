@@ -1,0 +1,40 @@
+{
+	"name": "highlight-counter",
+	"displayName": "Highlight counter",
+	"description": "Highlight counter counts the occurrences of the highlighted text. The result will be displayed in the status bar.",
+	"version": "1.0.0",
+	"publisher": "rambit",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RambIT-nl/highlight-counter"
+	},
+	"keywords": [
+		"selection",
+		"utilities"
+	],
+	"engines": {
+		"vscode": "^1.29.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"tslint": "^5.8.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	}
+}
