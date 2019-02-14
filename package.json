@@ -2,7 +2,7 @@
 	"name": "highlight-counter",
 	"displayName": "Highlight counter",
 	"description": "Highlight counter counts the occurrences of the highlighted text. The result will be displayed in the status bar.",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "rambit",
 	"repository": {
 		"type": "git",

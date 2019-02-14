@@ -1,7 +1,15 @@
-# Change Log
+# Changelog
 All notable changes to the "highlight-counter" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [1.1.0] - 14-02-2019
+### Changed
+- The highlight counter will now be activated if the text selection length is 1 or more, instead of more than 1.
+- This changes the alignment to the right.
 
-## [Unreleased]
+### Fixed
+- This fixes an issue with hiding the highlight counter after a text selection not done with a double click.
+
+
+## [1.0.0] - 16-01-2019
+### Added
 - Initial release
