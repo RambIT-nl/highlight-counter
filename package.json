@@ -2,7 +2,7 @@
 	"name": "highlight-counter",
 	"displayName": "Highlight counter",
 	"description": "Highlight counter counts the occurrences of the highlighted text. The result will be displayed in the status bar.",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"publisher": "rambit",
 	"repository": {
 		"type": "git",
@@ -22,7 +22,23 @@
 		"*"
 	],
 	"main": "./out/extension.js",
-	"contributes": {},
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Highlight counter",
+			"properties": {
+				"highlight-counter.alignment": {
+					"type": "string",
+					"enum": [
+						"left",
+						"right"
+					],
+					"default": "right",
+					"description": "Specifies the alignment of the highlight counter in the status bar"
+				}
+			}
+		}
+	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
 		"compile": "tsc -p ./",
