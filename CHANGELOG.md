@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to the "highlight-counter" extension will be documented in this file.
 
+
+## [1.3.0] - 23-02-2019
+### Added
+- Option to configure the priority of the highlight counter in the status bar.
+
+### Changed
+- Ignore selections that include a newline.
+
 ## [1.2.0] - 19-02-2019
 ### Added
 - Option to configure the alignment of the highlight counter in the status bar.
