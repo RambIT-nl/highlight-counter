@@ -35,6 +35,11 @@
 					],
 					"default": "right",
 					"description": "Specifies the alignment of the highlight counter in the status bar"
+				},
+				"highlight-counter.priority": {
+					"type": "integer",
+					"default": 100,
+					"description": "Specifies the priority of the highlight counter in the status bar. Higher values mean it should be shown more to the left."
 				}
 			}
 		}
