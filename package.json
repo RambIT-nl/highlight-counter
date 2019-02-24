@@ -1,61 +1,62 @@
 {
-	"name": "highlight-counter",
-	"displayName": "Highlight counter",
-	"description": "Highlight counter counts the occurrences of the highlighted text. The result will be displayed in the status bar.",
-	"version": "1.3.0",
-	"publisher": "rambit",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/RambIT-nl/highlight-counter"
-	},
-	"keywords": [
-		"selection",
-		"utilities"
-	],
-	"engines": {
-		"vscode": "^1.29.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "Highlight counter",
-			"properties": {
-				"highlight-counter.alignment": {
-					"type": "string",
-					"enum": [
-						"left",
-						"right"
-					],
-					"default": "right",
-					"description": "Specifies the alignment of the highlight counter in the status bar"
-				},
-				"highlight-counter.priority": {
-					"type": "integer",
-					"default": 100,
-					"description": "Specifies the priority of the highlight counter in the status bar. A higher value means it should be shown more to the left."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
-	},
-	"devDependencies": {
-		"typescript": "^3.1.4",
-		"vscode": "^1.1.25",
-		"tslint": "^5.8.0",
-		"@types/node": "^8.10.25",
-		"@types/mocha": "^2.2.42"
-	}
+  "name": "highlight-counter",
+  "displayName": "Highlight counter",
+  "description": "Highlight counter counts the occurrences of the highlighted text. The result will be displayed in the status bar.",
+  "version": "1.4.0",
+  "publisher": "rambit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RambIT-nl/highlight-counter"
+  },
+  "keywords": [
+    "selection",
+    "utilities"
+  ],
+  "engines": {
+    "vscode": "^1.29.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/icon.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Highlight counter",
+      "properties": {
+        "highlight-counter.alignment": {
+          "type": "string",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "default": "right",
+          "description": "Specifies the alignment of the highlight counter in the status bar"
+        },
+        "highlight-counter.priority": {
+          "type": "integer",
+          "default": 100,
+          "description": "Specifies the priority of the highlight counter in the status bar. A higher value means it should be shown more to the left."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.4",
+    "vscode": "^1.1.25",
+    "tslint": "^5.8.0",
+    "@types/node": "^8.10.25",
+    "@types/mocha": "^2.2.42"
+  }
 }
