@@ -27,6 +27,7 @@ export function activate() {
             let text = editor.document.getText(editor.selection);
 
             if (text.length >= 1 && text.indexOf('\n') === -1) {
+                text = text.replace('\\', '\\\\');
                 let matches = editor.document.getText().match(new RegExp(text, 'g'));
 
                 if (matches !== null && matches.length >= 1) {
