@@ -27,8 +27,10 @@ export function activate() {
             let text = editor.document.getText(editor.selection);
 
             if (text.length >= 1 && text.indexOf('\n') === -1) {
-                text = text.replace('\\', '\\\\');
-                let matches = editor.document.getText().match(new RegExp(text, 'g'));
+                text = text.replace(/\\/g, '\\\\');
+                let matches = editor.document
+                    .getText()
+                    .match(new RegExp(text, 'g'));
 
                 if (matches !== null && matches.length >= 1) {
                     msg.text = 'Highlighted: ' + matches.length;
@@ -54,9 +56,12 @@ export function deactivate() {
  * determine the StatusBarAlignment value to use.
  */
 function getAlignmentValue(): number {
-    let alignment: string | undefined = workspace.getConfiguration('highlight-counter').get('alignment');
+    let alignment: string | undefined = workspace
+        .getConfiguration('highlight-counter')
+        .get('alignment');
 
-    return alignment === StatusBarAlignment[StatusBarAlignment.Left].toLowerCase()
+    return alignment ===
+        StatusBarAlignment[StatusBarAlignment.Left].toLowerCase()
         ? StatusBarAlignment.Left
         : StatusBarAlignment.Right;
 }
@@ -65,7 +70,9 @@ function getAlignmentValue(): number {
  * Get the configured priority value.
  */
 function getPriorityValue(): number {
-    let priority: number | undefined = workspace.getConfiguration('highlight-counter').get('priority');
+    let priority: number | undefined = workspace
+        .getConfiguration('highlight-counter')
+        .get('priority');
 
     return Number(priority);
 }
