@@ -2,6 +2,12 @@
 
 All notable changes to the "highlight-counter" extension will be documented in this file.
 
+## [1.5.1] - 19-08-2019
+
+### Fixed
+
+-   Remove debug text.
+
 ## [1.5.0] - 19-08-2019
 
 ### Added
