@@ -41,6 +41,11 @@
                     "type": "integer",
                     "default": 100,
                     "description": "Specifies the priority of the highlight counter in the status bar. A higher value means it should be shown more to the left."
+                },
+                "highlight-counter.caseSensitive": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enables case sensitivity."
                 }
             }
         }
