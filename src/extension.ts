@@ -43,7 +43,7 @@ export function activate() {
                     .match(new RegExp(text, matchFlags));
 
                 if (matches !== null && matches.length >= 1) {
-                    msg.text = 'Highlighted hoi: ' + matches.length;
+                    msg.text = 'Highlighted: ' + matches.length;
                     msg.show();
                 } else {
                     msg.hide();
