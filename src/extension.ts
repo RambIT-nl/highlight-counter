@@ -3,13 +3,14 @@ import { window, workspace, StatusBarAlignment, StatusBarItem } from 'vscode';
 let alignment: number;
 let priority: number;
 let caseSensitive: boolean;
+let wholeWordMatching: boolean;
+let wordSeparators: string;
 let msg: StatusBarItem;
 
 workspace.onDidChangeConfiguration((event) => {
     if (
-        event.affectsConfiguration('highlight-counter.alignment') ||
-        event.affectsConfiguration('highlight-counter.priority') ||
-        event.affectsConfiguration('highlight-counter.caseSensitive')
+        event.affectsConfiguration('highlight-counter') ||
+        event.affectsConfiguration('editor.wordSeparators')
     ) {
         // Reactivate the extension to apply the new configuration
         deactivate();
@@ -21,6 +22,8 @@ export function activate() {
     alignment = getAlignmentValue();
     priority = getPriorityValue();
     caseSensitive = getCaseSensitiveValue();
+    wholeWordMatching = getWholeWordMatchingValue();
+    wordSeparators = getWordSeparatorsValue();
     msg = window.createStatusBarItem(alignment, priority);
 
     let matchFlags = 'gi';
@@ -36,7 +39,14 @@ export function activate() {
             let text = editor.document.getText(editor.selection);
 
             if (text.length >= 1 && text.indexOf('\n') === -1) {
-                text = text.replace(/\\/g, '\\\\');
+                text = escapeRegExp(text);
+
+                if (wholeWordMatching) {
+                    const boundaryRegex = wordSeparators
+                        ? `[${escapeRegExp(wordSeparators)}]|\\s`
+                        : '\\b';
+                    text = `(?<=^|${boundaryRegex})${text}(?=$|${boundaryRegex})`;
+                }
 
                 let matches = editor.document
                     .getText()
@@ -59,6 +69,13 @@ export function activate() {
 
 export function deactivate() {
     msg.dispose();
+}
+
+/**
+ * Escape special characters for regular expressions.
+ */
+function escapeRegExp(s: string): string {
+    return s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
 }
 
 /**
@@ -96,4 +113,35 @@ function getCaseSensitiveValue(): boolean {
         .get('caseSensitive');
 
     return caseSensitive ? caseSensitive : false;
+}
+
+/**
+ * Get the configured whole word matching value.
+ */
+function getWholeWordMatchingValue(): boolean {
+    let wholeWordMatching: boolean | undefined = workspace
+        .getConfiguration('highlight-counter')
+        .get('wholeWordMatching');
+
+    return wholeWordMatching ? wholeWordMatching : false;
+}
+
+
+/**
+ * Get the configured word separators value.
+ */
+function getWordSeparatorsValue(): string {
+    let wordSeparators: string | undefined = workspace
+        .getConfiguration('highlight-counter')
+        .get('wordSeparators');
+
+    if (wordSeparators) {
+        return wordSeparators;
+    }
+
+    wordSeparators = workspace
+        .getConfiguration('editor')
+        .get('wordSeparators')
+
+    return wordSeparators ? wordSeparators : '';
 }

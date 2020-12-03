@@ -46,6 +46,16 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Enables case sensitivity."
+                },
+                "highlight-counter.wholeWordMatching": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enables whole word matching."
+                },
+                "highlight-counter.wordSeparators": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Custom word separators for whole word matching. If not specified. the value of \"editor.wordSeparators\" will be used."
                 }
             }
         }

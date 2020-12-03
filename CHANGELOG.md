@@ -2,6 +2,16 @@
 
 All notable changes to the "highlight-counter" extension will be documented in this file.
 
+## Unreleased
+
+### Added
+
+-   Option to enable whole word matching and configuration for word separators.
+
+### Fixed
+
+-   Highlight counting of selections which contain regular expression special characters.
+
 ## [1.5.1] - 19-08-2019
 
 ### Fixed
