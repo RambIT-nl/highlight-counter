@@ -55,7 +55,7 @@
                 "highlight-counter.wordSeparators": {
                     "type": "string",
                     "default": "",
-                    "description": "Custom word separators for whole word matching. If not specified. the value of \"editor.wordSeparators\" will be used."
+                    "description": "Custom word separators for whole word matching. If not specified, the value of \"editor.wordSeparators\" will be used."
                 }
             }
         }
