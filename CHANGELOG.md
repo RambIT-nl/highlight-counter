@@ -2,7 +2,7 @@
 
 All notable changes to the "highlight-counter" extension will be documented in this file.
 
-## Unreleased
+## [1.6.0] - 04-12-2020
 
 ### Added
 
